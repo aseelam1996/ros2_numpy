@@ -51,6 +51,7 @@ def laserscan_to_array(
     if remove_invalid_ranges:
         indices_invalid_range = (
             np.isinf(ranges)
+            | np.isnan(ranges)
             | (ranges < scan.range_min)
             | (ranges > scan.range_max)
         )
